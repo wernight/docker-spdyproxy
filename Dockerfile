@@ -1,4 +1,4 @@
-FROM node:5.3-slim
+FROM node:6-slim
 
 RUN set -x \
  && npm install -g spdyproxy \
@@ -9,9 +9,6 @@ RUN set -x \
 VOLUME /ssl
 
 EXPOSE 44300
-
-ENV SPDY_USERNAME \
-    SPDY_PASSWORD
 
 COPY *.sh /
 

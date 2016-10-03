@@ -20,8 +20,9 @@ Features
 
 Features of this Dockerized image:
 
+  * **Small**: Based on `node:slim` (because currently it doesn't work on Alpine).
   * **Simple**: Exposes default port, generate self-signed certificate unless provided.
-  * **Secure**: Runs as non-root UID/GID `1593` (selected randomly to avoid mapping to an existing user), and supports basic auth.
+  * **Safe**: Runs as non-root UID/GID `1593` (selected randomly to avoid mapping to an existing user), and supports basic auth, runs [dumb-init](https://github.com/Yelp/dumb-init) to handle PID 1 properly.
 
 
 Usage example
@@ -44,7 +45,7 @@ Once running, you may setup your [compatible Browser](http://caniuse.com/#feat=s
          1. Settings > Show advanced settings > HTTPS/SSL > Manage Certificates
          2. Authorities tab > Import the certificate file you just downloaded.
          3. ☑ Trust for Websites
-      * Chrome on Mac: 
+      * Chrome on Mac:
          1. Settings > Show advanced settings > HTTPS/SSL > Manage Certificates
          2. File > Import Items…
  2. Create a PAC script, simplest on Chrome is using [SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif), like below (replace `203.0.113.0` by the hostname or IP of your server running *spdyproxy*):

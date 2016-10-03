@@ -1,6 +1,13 @@
-[![](https://badge.imagelayers.io/wernight/spdyproxy:latest.svg)](https://imagelayers.io/?images=wernight/spdyproxy:latest 'Get your own badge on imagelayers.io')
+Supported tags and respective `Dockerfile` links
+================================================
 
-**[spdyproxy](https://www.npmjs.com/package/spdyproxy)** - Fast, secure forward proxy: secure connection to proxy and ability to tunnel HTTP, HTTPS, and SPDY.
+  * [`latest`](https://github.com/wernight/docker-spdyproxy/blob/master/Dockerfile) [![](https://images.microbadger.com/badges/image/wernight/spdyproxy.svg)](http://microbadger.com/images/wernight/spdyproxy "Get your own image badge on microbadger.com")
+
+
+What is SPDY Proxy?
+===================
+
+**[SPDY Proxy](https://libraries.io/npm/spdyproxy)** is a fast, secure forward proxy. It acts as a secure proxy to access the internet via it: Secure connection to proxy and ability to tunnel HTTP, HTTPS, and SPDY.
 
 Allows to encrypt via TSL to a proxy server your entire browsing network accesses which may **speed up** (if your server has better network than the machine running your browser), **bypass** network web filters/firwalls (for example if you server is in another country and you're in China).
 
@@ -34,9 +41,11 @@ Once running, you may setup your [compatible Browser](http://caniuse.com/#feat=s
       * Chrome on Mac: 
          1. Settings > Show advanced settings > HTTPS/SSL > Manage Certificates
          2. File > Import Items…
- 2. Create a PAC file, simplest on Chrome is using [SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif), like below (replace `203.0.113.0` by the hostname or IP of your server running *spdyproxy*):
+ 2. Create a PAC script, simplest on Chrome is using [SwitchyOmega](https://chrome.google.com/webstore/detail/proxy-switchyomega/padekgcemlokbadohgkifijomclgjgif), like below (replace `203.0.113.0` by the hostname or IP of your server running *spdyproxy*):
 
         function FindProxyForURL(url, host) {
+          // Tries to go through proxy and falls back to direct connection.
           return "HTTPS 203.0.113.0:44300; DIRECT";
         }
 
+ 3. If you've set up a user/password, click the lock icon next to the PAC Script on *SwitchyOmega* to input your username/password.

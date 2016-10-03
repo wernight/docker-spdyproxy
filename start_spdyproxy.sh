@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-if [ -z $SPDY_USERNAME -o -z $SPDY_PASSWORD ]
+if [ -z $SPDY_USERNAME ] || [ -z $SPDY_PASSWORD ]
 then
     exec spdyproxy --verbose --key /ssl/server.key --cert /ssl/server.crt
 else

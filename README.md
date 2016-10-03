@@ -11,7 +11,12 @@ What is SPDY Proxy?
 
 Allows to encrypt via TSL to a proxy server your entire browsing network accesses which may **speed up** (if your server has better network than the machine running your browser), **bypass** network web filters/firwalls (for example if you server is in another country and you're in China).
 
-### Features
+
+How to use this image
+=====================
+
+Features
+--------
 
 Features of this Dockerized image:
 
@@ -19,7 +24,8 @@ Features of this Dockerized image:
   * **Secure**: Runs as non-root UID/GID `1593` (selected randomly to avoid mapping to an existing user), and supports basic auth.
 
 
-### Usage
+Usage example
+-------------
 
     $ docker run -d --net=host wernight/spdyproxy
 
@@ -49,3 +55,9 @@ Once running, you may setup your [compatible Browser](http://caniuse.com/#feat=s
         }
 
  3. If you've set up a user/password, click the lock icon next to the PAC Script on *SwitchyOmega* to input your username/password.
+
+
+User Feedback
+=============
+
+Having more issues? [Report a bug on GitHub](https://github.com/wernight/docker-spdyproxy/issues).

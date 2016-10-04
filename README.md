@@ -32,9 +32,11 @@ Usage example
 
 Note: `--net=host` is required for SPDY pings to be handled, outside of it, only port TCP `44300` is used.
 
-It's recommended that you provide a valid certificate, or at least self-sign one for your domain by mounting them as `/ssl/server.key` and `/ssl/server.crt` (you can mount as read-only, just check that user `1593` has read access to them). It'll **generate a self-signed certificate** if there isn't one already, however, it'll be signed for your **current public IP** address (you may also link it to a data-only container to preserve the generate certificate).
+It's recommended that you provide a valid certificate, or at least self-sign one for your domain by mounting them as `/ssl/tls.key` and `/ssl/tls.crt` (you can mount as read-only, just check that user `1593` has read access to them). It'll **generate a self-signed certificate** if there isn't one already, however, it'll be signed for your **current public IP** address (you may also link it to a data-only container to preserve the generate certificate).
 
-You can require **basic authentication** by specifying environment variables `SPDY_USERNAME` and `SPDY_PASSWORD`.
+You can require **basic authentication** by specifying *environment variables* `SPDY_USERNAME` and `SPDY_PASSWORD`.
+
+Note: The entrypoint is set to `spdyproxy` so you can just run: `docker run --rm -it wernight/spdyproxy --help`.
 
 #### Client-side setup
 

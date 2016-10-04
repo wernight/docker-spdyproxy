@@ -18,9 +18,8 @@ VOLUME /ssl
 
 EXPOSE 44300
 
-COPY *.sh /
+COPY entrypoint.sh /
 
 USER spdy
 
 ENTRYPOINT ["dumb-init", "/entrypoint.sh"]
-CMD ["/start_spdyproxy.sh"]

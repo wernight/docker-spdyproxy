@@ -1,4 +1,4 @@
-FROM node:6-slim
+FROM node:0.10-slim
 
 RUN set -x \
     # Install SPDY Proxy.
